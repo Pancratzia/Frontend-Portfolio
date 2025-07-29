@@ -1,0 +1,35 @@
+---
+import MenuIcon from "../assets/menu.svg";
+---
+
+<div
+  id="sidebar"
+  class="bg-secondary h-screen w-64 transition-all duration-300 flex flex-col border-r border-greyGPT"
+>
+  <div class="p-4 flex items-center justify-between">
+    <h2 class="text-lg font-bold sidebar-text">Laura Ortega</h2>
+    <button id="toggle" class="text-white cursor-pointer">
+      <MenuIcon fill="white" />
+    </button>
+  </div>
+  <nav class="flex-1 p-2">
+    <ul>
+      <li class="p-2 hover:bg-primary rounded cursor-pointer">Inicio</li>
+      <li class="p-2 hover:bg-primary rounded cursor-pointer">Proyectos</li>
+    </ul>
+  </nav>
+</div>
+
+<script>
+  const sidebar = document.getElementById("sidebar") as HTMLDivElement;
+  const toggle = document.getElementById("toggle") as HTMLButtonElement;
+  const texts = document.querySelectorAll(
+    ".sidebar-text"
+  ) as NodeListOf<HTMLSpanElement>;
+
+  toggle.addEventListener("click", () => {
+    sidebar.classList.toggle("w-64");
+    sidebar.classList.toggle("w-16");
+    texts.forEach((t) => t.classList.toggle("hidden"));
+  });
+</script>
